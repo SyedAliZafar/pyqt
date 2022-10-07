@@ -31,8 +31,10 @@ class Window(QWidget):
         self.path = QFileDialog.getExistingDirectory()
         if self.path:
             print('[inside] path:', self.path)
+            self.label.setText("Directory Selected")
         else:
             print('[inside] path: - not selected -') 
+            self.label.setText("No Directory Selected")
  
  
     def create_buttons(self):
