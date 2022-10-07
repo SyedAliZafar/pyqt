@@ -26,17 +26,6 @@ class Window(QWidget):
 "}")
 
 
-
-    def path_select(self):
-        self.path = QFileDialog.getExistingDirectory()
-        if self.path:
-            print('[inside] path:', self.path)
-            self.label.setText("Directory Selected")
-        else:
-            print('[inside] path: - not selected -') 
-            self.label.setText("No Directory Selected")
- 
- 
     def create_buttons(self):
         vbox = QVBoxLayout()
         hbox = QHBoxLayout()
@@ -76,14 +65,28 @@ class Window(QWidget):
         
         #### save file
         btn_confirm = QPushButton("Save the path", self)
+        btn_confirm.clicked.connect(self.path_select_save)
         btn_confirm.clicked.connect(self.close)
         vbox.addWidget(btn_confirm)
+        print("the path/directory is", self)
         
         
         
-        
+    def path_select(self):
+        self.path = QFileDialog.getExistingDirectory()
+        if self.path:
+            print('[inside] path:', self.path)
+            self.label.setText("Directory Selected")
+            print("There directory is",type(self.path))
+        else:
+            print('[inside] path: - not selected -') 
+            self.label.setText("No Directory Selected")
+         
         
         ##########
+        
+    def path_select_save(self):
+        print("saveeeeeeeeeeee file here",self.path_select)
  
  
     def clicked_btn(self):
