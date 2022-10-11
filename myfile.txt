@@ -1,0 +1,2 @@
+#Path of Ximc Library 
+D:/GUI_PYQT/GUI_Secondtry/Working/save_directory_path

@@ -26,17 +26,6 @@ class Window(QWidget):
 "}")
 
 
-
-    def path_select(self):
-        self.path = QFileDialog.getExistingDirectory()
-        if self.path:
-            print('[inside] path:', self.path)
-            self.label.setText("Directory Selected")
-        else:
-            print('[inside] path: - not selected -') 
-            self.label.setText("No Directory Selected")
- 
- 
     def create_buttons(self):
         vbox = QVBoxLayout()
         hbox = QHBoxLayout()
@@ -76,15 +65,44 @@ class Window(QWidget):
         
         #### save file
         btn_confirm = QPushButton("Save the path", self)
-        btn_confirm.clicked.connect(self.close)
+        btn_confirm.clicked.connect(self.path_select_save)
+        #btn_confirm.clicked.connect(self.close)
         vbox.addWidget(btn_confirm)
+        print("the path/directory is", self)
         
         
         
-        
+    def path_select(self):
+        self.path = QFileDialog.getExistingDirectory()
+        if self.path:
+            print('[inside] path:', self.path)
+            self.label.setText("Directory Selected")
+            print("There directory is",type(self.path))
+            self.label.setText("Path has been selected. Please press Choose for Execution for running the program")
+        else:
+            print('[inside] path: - not selected -') 
+            self.label.setText("No Directory Selected")
+         
         
         ##########
- 
+        
+    def path_select_save(self):
+        
+        if self.path:
+        
+            print("saveeeeeeeeeeee file here",self.path)
+            # save in a text file
+            file1 = open("myfile.txt","w")
+              
+            # \n is placed to indicate EOL (End of Line)
+            file1.write("#Path of Ximc Library \n")
+            file1.writelines(self.path)
+            file1.close() #to change file access modes
+        else:
+            print('[inside] path: - not selected -') 
+            self.label.setText("Please Specify the path of XIMC library")
+            
+             
  
     def clicked_btn(self):
         self.label.setText("No directory slot available")
