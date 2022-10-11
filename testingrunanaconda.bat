@@ -6,7 +6,7 @@ REM Insert your conda env here
 SET CONDA_ENV=icp_env
 
 CALL :activate_conda_env
-set /p Build=<file.txt
+set /p Build=<myfile.txt
 cd "%Build%"
 
 REM cd "D:\Hardware_Implementation\XIMC_SOFTWARE\XIMC_Software_package-2022.04.25-win32_win64\libximc-2.13.5-all\examples\test_Python\standardtest"

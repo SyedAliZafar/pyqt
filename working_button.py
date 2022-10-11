@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import QApplication,QHBoxLayout,QVBoxLayout,QLabel,QWidget, QPushButton,QFileDialog
 import sys
 from PyQt5.QtGui import QIcon, QFont
+import subprocess
 #import runbatch
  
 class Window(QWidget):
@@ -44,6 +45,7 @@ class Window(QWidget):
         btn2.setStyleSheet('background-color:purple')
         hbox.addWidget(btn2)
         btn2.clicked.connect(self.second_clicked)
+        #btn2.clicked.connect(self.execute_batch)
         #btn2.clicked.connect(self.second_clicked)
         #btn2.clicked.connect(runbatch.runscript)
         #blunch.clicked.connect(gps.runscript())
@@ -95,14 +97,16 @@ class Window(QWidget):
             file1 = open("myfile.txt","w")
               
             # \n is placed to indicate EOL (End of Line)
-            file1.write("#Path of Ximc Library \n")
+            #file1.write("#Path of Ximc Library \n")
             file1.writelines(self.path)
             file1.close() #to change file access modes
         else:
             print('[inside] path: - not selected -') 
             self.label.setText("Please Specify the path of XIMC library")
             
-             
+    def execute_batch(self):
+
+        subprocess.call([r'D:\GUI_PYQT\setting_up_anaconda\runanaconda.bat'])
  
     def clicked_btn(self):
         self.label.setText("No directory slot available")
@@ -113,7 +117,7 @@ class Window(QWidget):
     def second_clicked(self):
         self.label.setText("Perfekt! Sit Back and relax")
         self.label.setText("Executing Script, the values will be transferred automatically")
-
+        subprocess.call([r'testingrunanaconda.bat'])
  
 
 app = QApplication(sys.argv)

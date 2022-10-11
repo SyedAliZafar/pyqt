@@ -1,2 +1,1 @@
-#Path of Ximc Library 
-D:/GUI_PYQT/GUI_Secondtry/Working/save_directory_path
+D:/Hardware_Implementation/XIMC_SOFTWARE/XIMC_Software_package-2022.04.25-win32_win64/libximc-2.13.5-all/examples/test_Python/standardtest
