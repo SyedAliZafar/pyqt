@@ -3,7 +3,7 @@ import sys
 from PyQt5.QtGui import QIcon, QFont
 import subprocess
 #import runbatch
- 
+
 class Window(QWidget):
     def __init__(self):
         super().__init__()
@@ -117,8 +117,14 @@ class Window(QWidget):
     def second_clicked(self):
         self.label.setText("Perfekt! Sit Back and relax")
         self.label.setText("Executing Script, the values will be transferred automatically")
-        subprocess.call([r'testingrunanaconda.bat'])
- 
+        i=0
+        if i==0:
+        
+            subprocess.call([r'testingrunanaconda.bat'])
+            i+=1
+        else:
+            sys.exit(app.exec_())
+        
 
 app = QApplication(sys.argv)
 window = Window()
